@@ -12,6 +12,9 @@
 		B814921C2C9C1AC50047DBE3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B814921B2C9C1AC50047DBE3 /* Item.swift */; };
 		B814921E2C9C1AC60047DBE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B814921D2C9C1AC60047DBE3 /* Assets.xcassets */; };
 		B81492212C9C1AC60047DBE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B81492202C9C1AC60047DBE3 /* Preview Assets.xcassets */; };
+		B814922C2C9C235B0047DBE3 /* HIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B814922A2C9C235B0047DBE3 /* HIDService.swift */; };
+		B814922F2C9C23600047DBE3 /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B814922D2C9C23600047DBE3 /* Data+Hex.swift */; };
+		B81492322C9C23640047DBE3 /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81492302C9C23640047DBE3 /* BluetoothController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		B814921B2C9C1AC50047DBE3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B814921D2C9C1AC60047DBE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B81492202C9C1AC60047DBE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B814922A2C9C235B0047DBE3 /* HIDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIDService.swift; sourceTree = "<group>"; };
+		B814922D2C9C23600047DBE3 /* Data+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
+		B81492302C9C23640047DBE3 /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 		B81492162C9C1AC50047DBE3 /* TakaKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				B81492312C9C23640047DBE3 /* bluetooth */,
+				B814922E2C9C23600047DBE3 /* extensions */,
+				B814922B2C9C235B0047DBE3 /* HID */,
 				B81492172C9C1AC50047DBE3 /* TakaKeyboardApp.swift */,
 				B81492192C9C1AC50047DBE3 /* ContentView.swift */,
 				B814921B2C9C1AC50047DBE3 /* Item.swift */,
@@ -68,6 +77,30 @@
 				B81492202C9C1AC60047DBE3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B814922B2C9C235B0047DBE3 /* HID */ = {
+			isa = PBXGroup;
+			children = (
+				B814922A2C9C235B0047DBE3 /* HIDService.swift */,
+			);
+			path = HID;
+			sourceTree = "<group>";
+		};
+		B814922E2C9C23600047DBE3 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B814922D2C9C23600047DBE3 /* Data+Hex.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		B81492312C9C23640047DBE3 /* bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				B81492302C9C23640047DBE3 /* BluetoothController.swift */,
+			);
+			path = bluetooth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B814921A2C9C1AC50047DBE3 /* ContentView.swift in Sources */,
+				B814922F2C9C23600047DBE3 /* Data+Hex.swift in Sources */,
+				B814922C2C9C235B0047DBE3 /* HIDService.swift in Sources */,
 				B814921C2C9C1AC50047DBE3 /* Item.swift in Sources */,
+				B81492322C9C23640047DBE3 /* BluetoothController.swift in Sources */,
 				B81492182C9C1AC50047DBE3 /* TakaKeyboardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +315,7 @@
 				DEVELOPMENT_TEAM = JL5DG96Y3E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Use Bluetooth";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -291,9 +328,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rainbow.TakaKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +349,7 @@
 				DEVELOPMENT_TEAM = JL5DG96Y3E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Use Bluetooth";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,9 +362,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rainbow.TakaKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

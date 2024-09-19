@@ -11,9 +11,22 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    
+    let bluetoothController = BluetoothController()
 
     var body: some View {
         NavigationSplitView {
+            Button(action: {
+                bluetoothController.sendKeystroke(HIDService.KeyStroke.Z, HIDService.KeyState.Down)
+                bluetoothController.sendKeystroke(HIDService.KeyStroke.Z, HIDService.KeyState.Up)
+            }, label: {
+                Text("Z")
+            })
+            Button(action: {
+                
+            }, label: {
+                Text("?/")
+            })
             List {
                 ForEach(items) { item in
                     NavigationLink {
